@@ -899,10 +899,15 @@
             transform: translateY(-5px);
         }
 
-        /* Responsive Styles */
+        /* Responsive Styles - تحسينات للتوافق مع جميع الأجهزة */
         @media (max-width: 1200px) {
             .about-content, .contact-container {
                 gap: 3rem;
+            }
+            
+            .about-image, .contact-image {
+                min-width: 350px;
+                height: 500px;
             }
         }
 
@@ -921,6 +926,7 @@
                 height: 450px;
                 margin: 2rem auto;
             }
+            
             .about-text h3:after, .contact-info h3:after {
                 right: 50%;
                 transform: translateX(50%);
@@ -931,9 +937,20 @@
                 text-align: center;
                 max-width: 90%;
                 margin: 0 auto;
+                left: 0;
             }
+            
+            .hero p {
+                left: 0;
+            }
+            
             .hero-btns {
                 justify-content: center;
+            }
+            
+            .classic-elements {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
             }
         }
 
@@ -948,7 +965,7 @@
                 right: -100%;
                 flex-direction: column;
                 background-color: var(--cream);
-                width: 75%;
+                width: 85%;
                 max-width: 350px;
                 height: 100vh;
                 padding-top: 6rem;
@@ -975,6 +992,7 @@
                 text-align: center;
                 width: 100%;
             }
+            
             #main-nav ul li a {
                 font-size: 1.4rem;
                 color: var(--dark-brown);
@@ -982,10 +1000,12 @@
                 padding: 0.8rem 0;
                 transition: var(--transition);
             }
+            
             #main-nav ul li a:hover {
                 color: var(--primary-orange);
                 background-color: var(--light-beige);
             }
+            
             #main-nav ul li a:after {
                 left: 50%;
                 transform: translateX(-50%);
@@ -1033,7 +1053,6 @@
                 visibility: visible;
             }
 
-
             .hero h2 {
                 font-size: clamp(2.8rem, 7vw, 4rem);
             }
@@ -1045,17 +1064,21 @@
             .classic-elements {
                 grid-template-columns: 1fr;
             }
+            
             .classic-element {
                 padding: 2rem;
             }
 
             .menu-grid {
                 gap: 2rem;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
+            
             .menu-card {
-                margin: 0 5%;
+                margin: 0;
                 min-width: unset;
             }
+            
             .menu-img {
                 height: 220px;
             }
@@ -1063,15 +1086,31 @@
             .contact-info {
                 text-align: center;
             }
+            
             .contact-methods {
                 align-items: center;
             }
+            
             .whatsapp-btn {
                 margin: 2rem auto 0;
             }
+            
             .social-links {
                 justify-content: center;
                 margin-top: 2.5rem;
+            }
+            
+            .testimonials .swiper-container {
+                padding: 1rem 0;
+            }
+            
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+            
+            .offer-card {
+                width: 100%;
+                max-width: 300px;
             }
         }
 
@@ -1079,6 +1118,7 @@
             .logo h1 {
                 font-size: 1.5rem;
             }
+            
             .logo-circle {
                 width: 45px;
                 height: 45px;
@@ -1092,6 +1132,7 @@
                 width: fit-content;
                 margin: 1rem auto;
             }
+            
             .btn-outline {
                 margin-right: 0;
             }
@@ -1100,6 +1141,7 @@
                 font-size: clamp(2rem, 6vw, 3rem);
                 margin-bottom: 1rem;
             }
+            
             .section-header p {
                 font-size: 1rem;
             }
@@ -1112,12 +1154,74 @@
             .menu-content h3 {
                 font-size: 1.5rem;
             }
+            
             .menu-content p {
                 font-size: 0.95rem;
                 min-height: 60px;
             }
+            
             .price {
                 font-size: 1.4rem;
+            }
+            
+            .hero {
+                padding: 0 5%;
+                min-height: 600px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-outline {
+                margin-bottom: 1rem;
+                margin-right: 0;
+            }
+            
+            .hero-content {
+                padding-top: 100px;
+            }
+            
+            .testimonial-content {
+                font-size: 0.95rem;
+            }
+            
+            .author-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .author-info h4 {
+                font-size: 1.1rem;
+            }
+            
+            .footer-logo {
+                font-size: 2rem;
+            }
+            
+            footer p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-height: 700px) and (orientation: landscape) {
+            .hero {
+                min-height: 500px;
+            }
+            
+            .hero-content {
+                padding-top: 100px;
+            }
+            
+            .hero h2 {
+                font-size: clamp(2.5rem, 5vw, 3.5rem);
+            }
+            
+            .hero p {
+                font-size: clamp(1rem, 2vw, 1.3rem);
+                margin-bottom: 2rem;
             }
         }
     </style>
@@ -1538,6 +1642,10 @@
                     clickable: true,
                 },
                 breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 15,
+                    },
                     640: {
                         slidesPerView: 1,
                         spaceBetween: 20,
